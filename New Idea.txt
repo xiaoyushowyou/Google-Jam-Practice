@@ -1,0 +1,2 @@
+1. Proximity alert by using machine learning detection
+2. Library empty sit detection by using machine learning
