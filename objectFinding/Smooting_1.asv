@@ -1,0 +1,14 @@
+img=imread('Einstein.jpg');
+imshow(img);
+size(img)
+noise=randn(size(img)).*25;
+noisy_img=img + noise;
+
+imshow(noisy_img)
+
+% for sigma=1:3:10
+%     h=fspecial('guassian',fsize,sigma);
+%     out=imfilter(im,h);
+%     imshow(out);
+%     pause;
+% end
