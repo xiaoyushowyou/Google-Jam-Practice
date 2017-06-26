@@ -74,28 +74,8 @@ class solution:
             numb=numb+A[i]*(10**(i))
         return numb   
         
-    #A=[9,9,9,9]
-    #numb=digitAdd(self,A)+1
-    #print (numb)
-
-#Given an array and a value, remove all instances of that > value in place and return the new length.
-#The order of elements can be changed. It doesn't matter what you leave beyond the new length. 
-
-class solution:
-    def removeTar(self,numbers,target):
-        i=0
-        j=0
-        numA=len(numbers)
-
-        for i in range(numA):
-            if numbers[i]==target:
-                continue
-            else:
-                numbers[j]=numbers[i]
-                j+=1
-        return j,numbers[:j]
+    A=[9,9,9,9]
+    numb=digitAdd(self,A)+1
     
-    numbers=[1,2,2,3,4,1]
-    target=2
-    
-    print(removeTar(self,numbers,target))
+    print (numb)
+        
