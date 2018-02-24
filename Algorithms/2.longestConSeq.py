@@ -64,7 +64,34 @@ class solution:
     #numbers=[1,2,3,4,5]
     #target=5  
     #print(twoSum(self,numbers,target))
+
+#Threesum probelm
+#Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+#Note: Elements in a triplet (a,b,c) must be in non-descending order. (ie, a ≤ b ≤ c) The solution set must not contain duplicate triplets.
+#Improvement: whether it equals to a certain number 
+
+class solution:
+    def threeSum(myArray,target):
+        numElm=len(myArray)       
         
+        if numElm<3:
+            return 0
+        
+        for i in range(numElm):
+            for j in range(i+1,numElm):
+                
+                temp=int(target-myArray[i]-myArray[j])
+                if temp in myArray:
+                    return myArray[i],myArray[j],temp
+                    
+    myArray=[1,2,3,4,5]
+    target=9
+    
+    print(threeSum(myArray,target))
+                    
+        
+
+
 #----------------------------------------------------------------------------#
 # Given numRows, generate the first numRows of Pascal's triangle.
 # For example, given numRows = 5, Return
@@ -77,14 +104,48 @@ class solution:
  # [1,4,6,4,1]
 # ]
 
+#We can use numpy package to create multiple dimention matrix
 class solution:
-    def PascalTri(self,numR):
-    
-    sol={}
-    for i range(numR):
-        sol[i]=[]
-    
-    print (sol)
-    
-    PascalTri(self,5)
+    def PascalTri(numR):
+        sol=[]
+        sol.append([1])
+        sol.append([1,1])
+        print (sol)
+        for i in range(2,numR):
+            temp=[]
+            temp.append(1)
+            print (i,temp)
+            for j in range(1,i):
+                temp.append(sol[i-1][j-1]+sol[i-1][j])
+                print (temp)
+            temp.append(1)
+            print (temp)
+            sol.append(temp)
+        print (sol)
         
+    #PascalTri(5)
+
+    
+    
+ #_________________________________________________________________
+# Given an index k, return the kth row of the Pascal's triangle.
+# For example, given k = 3, Return [1,3,3,1].
+# Due to the limitation to space, O(n), we can only create one dimentional metrix
+
+class solution:
+    def PascalTri2(numR):
+        sol=[1,1]
+        if numR==1:
+            return [1]
+        elif numR==2:
+            return [1,1]
+        else:
+            for i in range(3,numR+1):
+                temp=[]
+                temp.append(1)
+                for j in range(1,i-1):                    
+                    temp.append(sol[j-1]+sol[j])
+                temp.append(1)
+                sol=temp
+            return sol
+    #print(PascalTri2(5))
